@@ -49,6 +49,7 @@ const Questionnaire = () => {
     }
 
     const handleSubmit = () => {
+        handleClose();
         console.log(income, chosenFinancialKnowledge);
     }
 
