@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Modal, TextField, Typography, MenuItem, Button } from "@mui/material"
+import { Box, Modal, TextField, Typography, MenuItem, Button, OutlinedInput, InputAdornment, InputLabel, FormControl } from "@mui/material"
 
 
 const style = {
@@ -13,7 +13,7 @@ const style = {
     pt: 2,
     px: 4,
     pb: 3,
-  };
+};
 
 const financialKnowledge = [
     {
@@ -70,16 +70,17 @@ const Questionnaire = () => {
                     </Typography>
 
                     <div className="my-4">
-                        <TextField
-                            sx={{ mt: 3 }}
+                    <FormControl sx={{ mt: 3 }} fullWidth>
+                        <InputLabel htmlFor="outlined-adornment-amount">Monthly Income</InputLabel>
+                        <OutlinedInput
                             fullWidth
-                            required
-                            id="outlined-required"
-                            label="Monthly Income"
-                            defaultValue=""
+                            id="outlined-adornment-amount"
                             value={income}
                             onChange={handleIncomeChange}
+                            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                            label="Monthly Income"
                         />
+                    </FormControl>
                         <TextField
                             sx={{ mt: 3 }}
                             fullWidth
@@ -97,9 +98,9 @@ const Questionnaire = () => {
                                 </MenuItem>
                             ))}
                         </TextField>
+
                     </div>
                     <Button sx={{ mt: 3 }} onClick={handleSubmit}>Submit</Button>
-
                 </Box>
             </Modal>
         </div>
