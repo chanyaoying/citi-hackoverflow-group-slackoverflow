@@ -36,6 +36,11 @@ const Home: NextPage = () => {
               <a>questionnaire (click here)</a>
             </Link>
           </li>
+          <li>
+            <Link href="/article_modal">
+              <a>article (click here)</a>
+            </Link>
+          </li>
         </ul>
 
 
