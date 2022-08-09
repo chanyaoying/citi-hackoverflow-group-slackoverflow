@@ -16,15 +16,15 @@ const style = {
 const financialKnowledge = [
     {
         value: "0",
-        label: "No knowledge - I am here to learn."
+        label: "Novice - I am here to learn."
     },
     {
         value: "1",
-        label: "Some knowledge - I have an idea of the investment instruments I can use, but might need some guidance on how to use them."
+        label: "Intermediate - I know of the investment instruments I can use, but might need some guidance."
     },
     {
         value: "2",
-        label: "Advanced knowledge - I have a good understanding of the investment instruments I can use and how to use them."
+        label: "Advanced - I have a good understanding of the investment instruments I can use and how to use them."
     }
 ]
 
