@@ -1,8 +1,8 @@
+import Button from '@mui/material/Button';
+
 const example_page = () => {
   return (
-    <div>
-      example page
-    </div>
+    <Button variant="contained">Click me!</Button>
   )
 }
 
