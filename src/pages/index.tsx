@@ -33,6 +33,10 @@ const Home: NextPage = () => {
       href: "/example",
       label: "Example",
     },
+    {
+      href: "/profile",
+      label: "Profile",
+    },
   ];
 
   return (
@@ -40,7 +44,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Slackoverflow (change this)</title>
         <meta name="description" content="slackoverflow" />
-        <link rel="icon" href="/" />
+        {/* <link rel="icon" href="/" /> */}
       </Head>
       <NavBar />
       <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
