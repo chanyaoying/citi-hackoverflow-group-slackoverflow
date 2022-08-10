@@ -1,3 +1,9 @@
+/**
+ * This pops up and asks the user about their preferences.
+ * OnSubmit: send the user's preferences to the backend, and update state.
+ * TODO: change to Srinivas's questions.
+ */
+
 import { useState } from 'react';
 import { Box, Modal, TextField, Typography, MenuItem, Button, OutlinedInput, InputAdornment, InputLabel, FormControl } from "@mui/material"
 
@@ -30,15 +36,16 @@ const financialKnowledge = [
     }
 ]
 
-const Questionnaire = () => {
+type QuestionnaireProps = {
+    open: boolean,
+    handleOpen: () => void,
+    handleClose: () => void,
+}
 
-    const [open, setOpen] = useState<boolean>(true);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+const QuestionnaireModal = ({ open, handleOpen, handleClose }: QuestionnaireProps) => {
 
     const [income, setIncome] = useState<string>("");
     const [chosenFinancialKnowledge, setChosenFinancialKnowledge] = useState<string>("");
-
 
     const handleIncomeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIncome(event.target.value);
@@ -54,23 +61,21 @@ const Questionnaire = () => {
     }
 
     return (
-        <div>
-            <Button onClick={handleOpen} >Open modal</Button>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Hello, CUSTOMER.
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Tell us more about yourself so we can better serve you.
-                    </Typography>
+        <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <Box sx={style}>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Hello, CUSTOMER.
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    Tell us more about yourself so we can better serve you.
+                </Typography>
 
-                    <div className="my-4">
+                <div className="my-4">
                     <FormControl sx={{ mt: 3 }} fullWidth>
                         <InputLabel htmlFor="outlined-adornment-amount">Monthly Income</InputLabel>
                         <OutlinedInput
@@ -82,30 +87,29 @@ const Questionnaire = () => {
                             label="Monthly Income"
                         />
                     </FormControl>
-                        <TextField
-                            sx={{ mt: 3 }}
-                            fullWidth
-                            select
-                            required
-                            id="outlined-select-financial-knowledge"
-                            label="Level of financial knowledge"
-                            defaultValue=""
-                            helperText="Please select your level of financial knowledge"
-                            onChange={handleChosenFinancialKnowledgeChange}
-                        >
-                            {financialKnowledge?.map(option => (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                            ))}
-                        </TextField>
+                    <TextField
+                        sx={{ mt: 3 }}
+                        fullWidth
+                        select
+                        required
+                        id="outlined-select-financial-knowledge"
+                        label="Level of financial knowledge"
+                        defaultValue=""
+                        helperText="Please select your level of financial knowledge"
+                        onChange={handleChosenFinancialKnowledgeChange}
+                    >
+                        {financialKnowledge?.map(option => (
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
 
-                    </div>
-                    <Button sx={{ mt: 3 }} onClick={handleSubmit}>Submit</Button>
-                </Box>
-            </Modal>
-        </div>
+                </div>
+                <Button sx={{ mt: 3 }} onClick={handleSubmit}>Save</Button>
+            </Box>
+        </Modal>
     )
 }
 
-export default Questionnaire
+export default QuestionnaireModal;

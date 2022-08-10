@@ -7,10 +7,18 @@
  *      get client data from backend and view their profile
  */
 
-import ProfileCard from "../../components/ProfileCard"
+
+import { useState } from 'react';
 import Button from "@mui/material/Button"
+import ProfileCard from "../../components/ProfileCard"
+import QuestionnaireModal from '../../components/QuestionnaireModal';
 
 const profile = () => {
+
+    // To open and closeQuestionnaireModal;
+    const [open, setOpen] = useState<boolean>(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);    
 
     // TODO: get customer profile from backend based on instuctions above
     const name: string = "Sarah";
@@ -31,7 +39,8 @@ const profile = () => {
 
                 
             </div>
-            <Button>Edit preferences</Button>
+            <Button onClick={handleOpen} >Edit preferences</Button>
+            <QuestionnaireModal open={open} handleOpen={handleOpen} handleClose={handleClose} />
         </div>
     )
 }
