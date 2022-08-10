@@ -47,6 +47,11 @@ const Home: NextPage = () => {
               <a>chat (click here)</a>
             </Link>
           </li>
+          <li>  
+            <Link href="/example">
+              <a>example (click here)</a>
+            </Link>
+          </li>
         </ul>
 
 
