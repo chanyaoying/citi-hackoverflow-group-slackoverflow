@@ -37,6 +37,10 @@ const Home: NextPage = () => {
       href: "/profile",
       label: "Profile",
     },
+    {
+      href: "/banker",
+      label: "Banker",
+    }
   ];
 
   return (
