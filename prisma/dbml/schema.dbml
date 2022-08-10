@@ -1,0 +1,58 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Project "Test Project Name" {
+  database_type: 'MySQL'
+  Note: 'Test project description'
+}
+
+Table User {
+  id Int [pk, increment]
+  name String [not null]
+  role Role [not null, default: 'CLIENT']
+  portfolio Portfolio [not null]
+  preference Preference
+}
+
+Table Portfolio {
+  id Int [pk, increment]
+  assets String [not null]
+  user User
+  userId Int [not null]
+}
+
+Table Preference {
+  id String [pk]
+  timePeriod Int
+  longTerm Int
+  withdraw Int
+  stable Int
+  customerReaction Int
+  indestryPref Industry [not null]
+  user User
+  userId Int [unique, not null]
+}
+
+Enum Role {
+  CLIENT
+  BANKER
+}
+
+Enum Industry {
+  Energy
+  Materials
+  Industrials
+  Utilities
+  Healthcare
+  Financials
+  ConsumerDiscretionary
+  ConsumerStaples
+  InformationTechnology
+  CommunicationServices
+  RealEstate
+}
+
+Ref: Portfolio.userId > User.id
+
+Ref: Preference.userId - User.id
