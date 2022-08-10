@@ -5,8 +5,15 @@ import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
 import "../styles/globals.css";
 
+import store from '../store/store'
+import { Provider } from 'react-redux'
+
 const MyApp: AppType = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />;
+    </Provider>
+  )
 };
 
 const getBaseUrl = () => {
