@@ -13,6 +13,28 @@ type TechnologyCardProps = {
 const Home: NextPage = () => {
   // const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  type linkArray = {href: string, label: string}[];
+
+  const links: linkArray = [
+    {
+      href: "/",
+      label: "Home",
+    },
+    {
+      href: "/questionnaire",
+      label: "Questionnaire",
+    },
+    {
+      href: "/chat",
+      label: "Chat",
+    },
+    {
+      href: "/example",
+      label: "Example",
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -27,31 +49,13 @@ const Home: NextPage = () => {
         </h1>
 
         <ul>
-          <li>
-            <Link href="/">
-              <a>Home page</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/questionnaire">
-              <a>questionnaire (click here)</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/article_modal">
-              <a>article (click here)</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/chat">
-              <a>chat (click here)</a>
-            </Link>
-          </li>
-          <li>  
-            <Link href="/example">
-              <a>example (click here)</a>
-            </Link>
-          </li>
+          {links.map(({href, label}) => (
+            <li key={href}>
+              <Link href={href}>
+                <a>{label}</a>
+              </Link>
+            </li>
+          ))}
         </ul>
 
 
