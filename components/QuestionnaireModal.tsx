@@ -38,11 +38,10 @@ const financialKnowledge = [
 
 type QuestionnaireProps = {
     open: boolean,
-    handleOpen: () => void,
     handleClose: () => void,
 }
 
-const QuestionnaireModal = ({ open, handleOpen, handleClose }: QuestionnaireProps) => {
+const QuestionnaireModal = ({ open, handleClose }: QuestionnaireProps) => {
 
     const [income, setIncome] = useState<string>("");
     const [chosenFinancialKnowledge, setChosenFinancialKnowledge] = useState<string>("");
@@ -56,6 +55,7 @@ const QuestionnaireModal = ({ open, handleOpen, handleClose }: QuestionnaireProp
     }
 
     const handleSubmit = () => {
+        // TODO: send the user's preferences to the backend, and update state.
         handleClose();
         console.log(income, chosenFinancialKnowledge);
     }

@@ -40,7 +40,7 @@ const profile = () => {
                 
             </div>
             <Button onClick={handleOpen} >Edit preferences</Button>
-            <QuestionnaireModal open={open} handleOpen={handleOpen} handleClose={handleClose} />
+            <QuestionnaireModal open={open} handleClose={handleClose} />
         </div>
     )
 }
