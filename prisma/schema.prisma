@@ -53,15 +53,15 @@ model Questionnaire {
 }
 
 enum Industry {
-    Energy,
-    Materials,
-    Industrials,
-    Utilities,
-    Healthcare,
-    Financials,
-    Consumer Discretionary,
-    Consumer Staples,
-    Information Technology,
-    Communication Services,
-    Real Estate
+    Energy
+    Materials
+    Industrials
+    Utilities
+    Healthcare
+    Financials
+    ConsumerDiscretionary
+    ConsumerStaples
+    InformationTechnology
+    CommunicationServices
+    RealEstate
 }
