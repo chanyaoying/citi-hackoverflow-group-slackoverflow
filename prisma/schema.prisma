@@ -40,9 +40,28 @@ enum Role {
     BANKER
 }
 
-enum FinancialKnowledgeLevel {t
-    NULL
-    NOVICE
-    INTERMEDIATE
-    ADVANCED
+
+model Questionnaire {
+    id String @id @default(cuid())
+    timePeriod Int?
+    longTerm Int?
+    withdraw Int?
+    stable Int?
+    customerReaction Int?
+    indestryPref Industry
+
+}
+
+enum Industry {
+    Energy,
+    Materials,
+    Industrials,
+    Utilities,
+    Healthcare,
+    Financials,
+    Consumer Discretionary,
+    Consumer Staples,
+    Information Technology,
+    Communication Services,
+    Real Estate
 }
