@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from 'next/link'
-import { trpc } from "../utils/trpc";
+import NavBar from '../../components/NavBar'
+import * as React from 'react'
 
 type TechnologyCardProps = {
   name: string;
@@ -11,7 +12,7 @@ type TechnologyCardProps = {
 
 const Home: NextPage = () => {
   // const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
-
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
     <>
       <Head>
@@ -19,7 +20,7 @@ const Home: NextPage = () => {
         <meta name="description" content="slackoverflow" />
         <link rel="icon" href="/" />
       </Head>
-
+      <NavBar />
       <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
           Pages
