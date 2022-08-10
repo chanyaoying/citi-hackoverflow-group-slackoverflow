@@ -44,13 +44,10 @@ export default function Home() {
   };
 
   const handleKeypress = (e: KeyboardEvent) => {
-    //it triggers by pressing the enter key
-    if (e.keyCode === 13) {
-      if (message) {
-        sendMessage();
-      }
+    if (e.key === "Enter") {
+      sendMessage();
     }
-  };
+  }
 
   return (
     <div>
