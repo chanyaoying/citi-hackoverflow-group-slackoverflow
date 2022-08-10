@@ -28,8 +28,6 @@ const financialKnowledge = [
     }
 ]
 
-
-
 const Questionnaire = () => {
 
     const [open, setOpen] = useState(true);

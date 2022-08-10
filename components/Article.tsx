@@ -29,6 +29,7 @@ const Article = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
+
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Margin
                     </Typography>
@@ -37,16 +38,15 @@ const Article = () => {
                     </Typography>
 
                     <div>
-                        <Button target="_blank" href="https://www.privatebank.citibank.com/we-offer/margin-lending">In-Depth Article</Button>
+                        <br></br>
+                        <Button variant="contained" target="_blank" href="https://www.privatebank.citibank.com/we-offer/margin-lending">In-Depth Article</Button>
+                        
+                        <br></br><br></br>
+                        <Button variant="outlined">Enable</Button>
 
-                        <Button>Enable</Button>
-
-                        <Button>Not Now</Button>
+                        <Button size="small">Not Now</Button>
                     </div>
                     
-
-                    
-
                 </Box>
             </Modal>
         </div>
