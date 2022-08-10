@@ -35,7 +35,7 @@ export default function Home() {
   };
 
   const sendMessage = async () => {
-    socket.emit("createdMessage", { author: chosenUsername, message });
+    //socket.emit("createdMessage", { author: chosenUsername, message });
     setMessages((currentMsg) => [
       ...currentMsg,
       { author: chosenUsername, message },
@@ -85,17 +85,16 @@ export default function Home() {
         ) : (
           <>
             <p className="font-bold text-white text-xl">
-              Your username: {username}
+              You are {username}!
             </p>
             <div className="flex flex-col justify-end bg-white h-[20rem] min-w-[33%] rounded-md shadow-md ">
               <div className="h-full last:border-b-0 overflow-y-scroll">
-                {messages.map((msg, i) => {
+                {messages.map((msg) => {
                   return (
                     <div
                       className="w-full py-1 px-2 border-b border-gray-200"
-                      key={i}
                     >
-                      {msg.author} : {msg.message}
+                      {msg.author}: {msg.message}
                     </div>
                   );
                 })}
