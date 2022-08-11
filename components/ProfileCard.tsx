@@ -35,7 +35,7 @@ const ProfileCard = ( { imageLink, name, description }: ProfileCardProps ) => {
             </CardContent>
             <CardActions>
                 {/* chat only if current user's role is a banker */}
-                <Button size="small">Chat</Button>
+                {/* <Button size="small">Chat</Button> */}
                 {/* able to add more buttons */}
             </CardActions>
         </Card>

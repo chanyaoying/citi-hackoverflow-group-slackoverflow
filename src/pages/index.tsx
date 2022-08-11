@@ -46,7 +46,7 @@ const Home: NextPage = () => {
         {/* <link rel="icon" href="/" /> */}
       </Head>
       <div className='mx-96'>
-        <Image src="/citi,jpg" height={500} width={850} />
+        <Image src="/citi.jpg" height={500} width={850} />
       </div>
       <div className=' w-screen text-center' >
         <Button variant='outlined' size='large' className='mt-16'><Link href='/clientHome'>I'm a client</Link></Button>

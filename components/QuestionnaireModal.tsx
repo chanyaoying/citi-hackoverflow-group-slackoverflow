@@ -66,11 +66,12 @@ const questions = [
 ]
 
 type QuestionnaireProps = {
+    name: string,
     open: boolean,
     handleClose: () => void,
 }
 
-const QuestionnaireModal = ({ open, handleClose }: QuestionnaireProps) => {
+const QuestionnaireModal = ({ name, open, handleClose }: QuestionnaireProps) => {
 
     const [answers, setAnswers] = useState<{ [key: string]: string }>({});
 
@@ -93,7 +94,7 @@ const QuestionnaireModal = ({ open, handleClose }: QuestionnaireProps) => {
         >
             <Box sx={style}>
                 <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Hello, CUSTOMER.
+                    Hello, {name}.
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     Tell us more about yourself so we can better serve you.
