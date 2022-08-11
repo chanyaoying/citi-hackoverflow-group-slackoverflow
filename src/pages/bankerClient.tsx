@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import { useDemoData } from '@mui/x-data-grid-generator';
 import Typography from '@mui/material/Typography';
 import NavBar from '../../components/NavBanker'
+import ProfileModal from '../../components/ProfileModal';
+
 
 
 const bankerClient = () => {
@@ -38,7 +40,7 @@ const bankerClient = () => {
 
             <Button>View Profile</Button>
       
-            <Button href='http://localhost:3000/chatBanker'>Chat</Button>
+            <Button href='http://localhost:3000/chat'>Chat</Button>
             </ButtonGroup>
     },
   }

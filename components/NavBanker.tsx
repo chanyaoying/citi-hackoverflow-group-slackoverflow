@@ -43,7 +43,7 @@ const NavBar = () => {
               <ul className='inline-flex'>
                 <li><Link href="/bankerClient"><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>MY CLIENTS</a></Link></li>
                 <li><Link href="/banker"><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>NEW CLIENTS</a></Link></li>
-                <li><Link href='/chatBanker'><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>MESSAGES</a></Link></li>
+                <li><Link href='/chat'><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>MESSAGES</a></Link></li>
                 </ul>
           </Box>
 

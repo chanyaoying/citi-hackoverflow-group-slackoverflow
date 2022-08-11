@@ -5,9 +5,17 @@ import Box from '@mui/material/Box';
 import { useDemoData } from '@mui/x-data-grid-generator';
 import Typography from '@mui/material/Typography';
 import NavBar from '../../components/NavBanker'
+import { useState } from 'react';
+import ProfileModal from '../../components/ProfileModal';
+
+
 
 
 const banker = () => {
+
+  const [open, setOpen] = useState<boolean>(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);   
 
   const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -36,9 +44,10 @@ const banker = () => {
       width: 300,
       renderCell : (params) => {return <ButtonGroup aria-label="outlined primary button group">
 
-            <Button>View Profile</Button>
+            <Button onClick={handleOpen}>View Profile</Button>
+
       
-            <Button href='http://localhost:3000/chatBanker'>Chat</Button>
+            <Button href='http://localhost:3000/chat'>Chat</Button>
             </ButtonGroup>
     },
   }
@@ -54,7 +63,9 @@ const banker = () => {
   ];
 
   return (
+
     <div>
+    <ProfileModal open={open} handleClose={handleClose} />
 
       <nav className='flex items-center flex-wrap bg-blue-300 p-3 '>
         <Link href='/'>

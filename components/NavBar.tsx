@@ -44,7 +44,7 @@ const NavBar = () => {
                 <li><Link href="/clientHome"><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>INSIGHTS</a></Link></li>
               
                 <li><Link href='/profile'><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>PROFILE</a></Link></li>
-                <li><Link href='/chatClient'><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>MESSAGES</a></Link></li>
+                <li><Link href='/chat'><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>MESSAGES</a></Link></li>
                 </ul>
           </Box>
 
