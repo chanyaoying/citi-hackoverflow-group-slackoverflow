@@ -56,34 +56,10 @@ export default function Home() {
     <div className="flex items-center p-4 mx-auto min-h-screen justify-center bg-gradient-to-b from-blue-600 to-gray-400">
       <main className="gap-4 flex flex-col items-center justify-center w-full h-full">
       
-        {!chosenUsername ? (
-          <>
-            <h1 className="font-bold text-white text-4xl">
-                You will be talking to the banker!
-            </h1>
-            <h3 className="font-bold text-white text-xl">
-              How should I call you?
-            </h3>
-            <input
-              type="text"
-              placeholder="Identity..."
-              value={username}
-              className="p-3 rounded-md outline-none"
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <button
-              onClick={() => {
-                setChosenUsername(username);
-              }}
-              className="bg-white rounded-md px-4 py-2 text-xl"
-            >
-              Start Chat!
-            </button>
-          </>
-        ) : (
+        {(
           <>
             <p className="font-bold text-white text-xl">
-              You are {username}!
+              You are talking to your client!
             </p>
             <div className="flex flex-col justify-end bg-white h-[20rem] min-w-[33%] rounded-md shadow-md ">
               <div className="h-full last:border-b-0 overflow-y-scroll">
