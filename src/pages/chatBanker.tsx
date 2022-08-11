@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 import { useState, useEffect } from "react";
-import NavBar from '../../components/NavBar'
+import NavBanker from '../../components/NavBanker'
 
 let socket;
 
@@ -51,7 +51,7 @@ export default function Home() {
 
   return (
     <div>
-    <NavBar />
+    <NavBanker />
     <div className="flex items-center p-4 mx-auto min-h-screen justify-center bg-gradient-to-b from-blue-600 to-gray-400">
       <main className="gap-4 flex flex-col items-center justify-center w-full h-full">
       

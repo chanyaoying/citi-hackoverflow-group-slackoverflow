@@ -38,7 +38,7 @@ const banker = () => {
 
             <Button>View Profile</Button>
       
-            <Button href='http://localhost:3000/chat'>Chat</Button>
+            <Button href='http://localhost:3000/chatBanker'>Chat</Button>
             </ButtonGroup>
     },
   }
