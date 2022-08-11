@@ -43,7 +43,6 @@ const NavBar = () => {
               <ul className='inline-flex'>
                 <li><Link href="/bankerHome"><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>MY CLIENTS</a></Link></li>
                 <li><Link href="/banker"><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>NEW CLIENTS</a></Link></li>
-                <li><Link href='/profile'><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>PROFILE</a></Link></li>
                 <li><Link href='/chat'><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>MESSAGES</a></Link></li>
                 </ul>
           </Box>
@@ -72,7 +71,7 @@ const NavBar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center"><Link href='/'>{setting}</Link></Typography>
                 </MenuItem>
               ))}
             </Menu>
