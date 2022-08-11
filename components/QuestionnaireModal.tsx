@@ -21,18 +21,36 @@ const style = {
     pb: 3,
 };
 
-const financialKnowledge = [
+const questions = [
     {
-        value: "novice",
-        label: "Novice - I am here to learn."
+        question: 'As I withdraw money from these investments, I plan to spend it over a period of',
+        type: 'select',
+        options: ['< 3 years', '3-5 years', '6-10 years', '11-15 years', '> 15 years']
     },
     {
-        value: "intermediate",
-        label: "Intermediate - I know of the investment instruments I can use, but might need some guidance."
+        question: 'What is your definition of a long term investment',
+        type: 'input',
+        options: [],
     },
     {
-        value: "advanced",
-        label: "Advanced - I have a good understanding of the investment instruments I can use and how to use them."
+        question: 'I begin taking money from my investments in',
+        type: 'select',
+        options: ['< 3 years', '3-5 years', '6-10 years', '11-15 years', '> 15 years']
+    },
+    {
+        question: 'My current income sources are very unstable/ ect',
+        type: 'select',
+        options: ['True', 'False']
+    },
+    {
+        question: 'If you were holding on to a stock and it plummeted 30% in 2 months, you would',
+        type: 'select',
+        options: ["Sell it", "Hold on"]
+    },
+    {
+        question: 'Which industry are you interested in investing into',
+        type: 'select',
+        options: ['Energy', 'Materials', 'Industrials', 'Utilities', 'Healthcare', 'Financials', 'ConsumerDiscretionary', 'ConsumerStaples', 'InformationTechnology', 'CommunicationServices', 'RealEstate']
     }
 ]
 
