@@ -25,7 +25,7 @@ export default function Home() {
 
     socket = io();
 
-    socket.on("newIncomingMessage", (msg) => {
+    socket.off('newIncomingMessage').on("newIncomingMessage", (msg) => {
       setMessages((currentMsg) => [
         ...currentMsg,
         { author: msg.author, message: msg.message },
@@ -35,12 +35,13 @@ export default function Home() {
   };
 
   const sendMessage = async () => {
-    //socket.emit("createdMessage", { author: chosenUsername, message });
+    socket.emit("createdMessage", { author: chosenUsername, message });
     setMessages((currentMsg) => [
       ...currentMsg,
       { author: chosenUsername, message },
     ]);
     setMessage("");
+    console.log(messages);
   };
 
   const handleKeypress = (e: KeyboardEvent) => {
@@ -58,7 +59,7 @@ export default function Home() {
         {!chosenUsername ? (
           <>
             <h1 className="font-bold text-white text-4xl">
-                Talk to a Banker!
+                You will be talking to the banker!
             </h1>
             <h3 className="font-bold text-white text-xl">
               How should I call you?
@@ -86,10 +87,11 @@ export default function Home() {
             </p>
             <div className="flex flex-col justify-end bg-white h-[20rem] min-w-[33%] rounded-md shadow-md ">
               <div className="h-full last:border-b-0 overflow-y-scroll">
-                {messages.map((msg) => {
+                {messages.map((msg, i) => {
                   return (
                     <div
                       className="w-full py-1 px-2 border-b border-gray-200"
+                      key={i}
                     >
                       {msg.author}: {msg.message}
                     </div>
