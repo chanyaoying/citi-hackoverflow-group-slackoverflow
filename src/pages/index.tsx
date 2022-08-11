@@ -13,30 +13,57 @@ type TechnologyCardProps = {
 const Home: NextPage = () => {
   // const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  type linkArray = {href: string, label: string}[];
+
+  const links: linkArray = [
+    {
+      href: "/",
+      label: "Home",
+    },
+    {
+      href: "/questionnaire",
+      label: "Questionnaire",
+    },
+    {
+      href: "/chat",
+      label: "Chat",
+    },
+    {
+      href: "/example",
+      label: "Example",
+    },
+    {
+      href: "/profile",
+      label: "Profile",
+    },
+    {
+      href: "/banker",
+      label: "Banker",
+    }
+  ];
+
   return (
     <>
       <Head>
         <title>Slackoverflow (change this)</title>
         <meta name="description" content="slackoverflow" />
-        <link rel="icon" href="/" />
+        {/* <link rel="icon" href="/" /> */}
       </Head>
-      <NavBar />
+      <NavBar />npx
       <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
           Pages
         </h1>
 
         <ul>
-          <li>
-            <Link href="/">
-              <a>Home page</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/questionnaire">
-              <a>questionnaire (click here)</a>
-            </Link>
-          </li>
+          {links.map(({href, label}) => (
+            <li key={href}>
+              <Link href={href}>
+                <a>{label}</a>
+              </Link>
+            </li>
+          ))}
         </ul>
 
 

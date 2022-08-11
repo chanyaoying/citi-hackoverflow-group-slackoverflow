@@ -6,10 +6,59 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "mysql"
     url      = env("DATABASE_URL")
 }
 
-model Example {
+generator dbml {
+  provider   = "prisma-dbml-generator"
+  projectName = "Test Project Name"
+  projectDatabaseType = "MySQL"
+  projectNote = "Test project description"
+}
+
+model User {
+    id Int @id @default(autoincrement())
+    name String
+    role Role @default(CLIENT)
+    portfolio Portfolio[]
+    preference Preference?
+}
+
+model Portfolio {
+    id Int @id @default(autoincrement())
+    assets String // json object of assets { "SPY": 10, "AAPL": 2 }
+    user   User? @relation(fields: [userId], references: [id])
+    userId Int
+}
+
+enum Role {
+    CLIENT
+    BANKER
+}
+
+model Preference {
     id String @id @default(cuid())
+    timePeriod Int?
+    longTerm Int?
+    withdraw Int?
+    stable Int?
+    customerReaction Int?
+    indestryPref Industry
+    user User? @relation(fields: [userId], references: [id])
+    userId Int @unique
+}
+
+enum Industry {
+    Energy
+    Materials
+    Industrials
+    Utilities
+    Healthcare
+    Financials
+    ConsumerDiscretionary
+    ConsumerStaples
+    InformationTechnology
+    CommunicationServices
+    RealEstate
 }
