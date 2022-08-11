@@ -42,8 +42,8 @@ model Preference {
     spendingPeriod String?
     longTerm String?
     periodOfFirstWithdrawal String?
-    stable Int?
-    customerReaction Int?
+    stable String?
+    customerReaction String?
     indestryPref Industry
     user User? @relation(fields: [userId], references: [id])
     userId Int @unique

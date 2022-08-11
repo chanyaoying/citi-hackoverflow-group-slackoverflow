@@ -27,8 +27,8 @@ Table Preference {
   spendingPeriod String
   longTerm String
   periodOfFirstWithdrawal String
-  stable Int
-  customerReaction Int
+  stable String
+  customerReaction String
   indestryPref Industry [not null]
   user User
   userId Int [unique, not null]
