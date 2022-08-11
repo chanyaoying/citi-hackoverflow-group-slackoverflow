@@ -6,7 +6,7 @@
 
 import { useState } from 'react';
 import { Box, Modal, TextField, Typography, MenuItem, Button, OutlinedInput, InputAdornment, InputLabel, FormControl } from "@mui/material"
-
+import Question from './Question';
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -23,32 +23,44 @@ const style = {
 
 const questions = [
     {
-        question: 'As I withdraw money from these investments, I plan to spend it over a period of',
+        question: 'As I withdraw from my investments, I plan to spend it over a period of',
+        name: 'spendingPeriod',
+        helperText: 'Select one',
         type: 'select',
         options: ['< 3 years', '3-5 years', '6-10 years', '11-15 years', '> 15 years']
     },
     {
         question: 'What is your definition of a long term investment',
+        name: 'longTerm',
+        helperText: '',
         type: 'input',
         options: [],
     },
     {
         question: 'I begin taking money from my investments in',
+        name: 'periodOfFirstWithdrawal',
+        helperText: 'Select one',
         type: 'select',
         options: ['< 3 years', '3-5 years', '6-10 years', '11-15 years', '> 15 years']
     },
     {
         question: 'My current income sources are very unstable/ ect',
+        name: 'stable',
+        helperText: '',
         type: 'select',
         options: ['True', 'False']
     },
     {
         question: 'If you were holding on to a stock and it plummeted 30% in 2 months, you would',
+        name: 'customerReaction',
+        helperText: '',
         type: 'select',
-        options: ["Sell it", "Hold on"]
+        options: ["Sell it", "Hold on", "Buy it again"]
     },
     {
         question: 'Which industry are you interested in investing into',
+        name: 'indestryPref',
+        helperText: 'Indicate your preference',
         type: 'select',
         options: ['Energy', 'Materials', 'Industrials', 'Utilities', 'Healthcare', 'Financials', 'ConsumerDiscretionary', 'ConsumerStaples', 'InformationTechnology', 'CommunicationServices', 'RealEstate']
     }
@@ -61,21 +73,27 @@ type QuestionnaireProps = {
 
 const QuestionnaireModal = ({ open, handleClose }: QuestionnaireProps) => {
 
-    const [income, setIncome] = useState<string>("");
-    const [chosenFinancialKnowledge, setChosenFinancialKnowledge] = useState<string>("");
+    // const [income, setIncome] = useState<string>("");
+    // const [chosenFinancialKnowledge, setChosenFinancialKnowledge] = useState<string>("");
 
-    const handleIncomeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setIncome(event.target.value);
-    }
+    // const handleIncomeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     setIncome(event.target.value);
+    // }
 
-    const handleChosenFinancialKnowledgeChange = (event: React.ChangeEvent<{ value: string }>) => {
-        setChosenFinancialKnowledge(event.target.value as string);
+    // const handleChosenFinancialKnowledgeChange = (event: React.ChangeEvent<{ value: string }>) => {
+    //     setChosenFinancialKnowledge(event.target.value as string);
+    // }
+
+    const [answers, setAnswers] = useState<{ [key: string]: string }>({});
+
+    const handleAnswerChange = (event: React.ChangeEvent<{ value: string }>, name: string ) => {
+        setAnswers({ ...answers, [ name ]: event.target.value });
     }
 
     const handleSubmit = () => {
         // TODO: send the user's preferences to the backend, and update state.
         handleClose();
-        console.log(income, chosenFinancialKnowledge);
+        console.log(answers);
     }
 
     return (
@@ -94,7 +112,10 @@ const QuestionnaireModal = ({ open, handleClose }: QuestionnaireProps) => {
                 </Typography>
 
                 <div className="my-4">
-                    <FormControl sx={{ mt: 3 }} fullWidth>
+                    {questions.map(question => (
+                        <Question key={question.question} question={question.question} questionType={question.type} helperText={question.helperText} options={question.options} handler={(e) => {handleAnswerChange(e, question.name)}} />
+                    ))}
+                    {/* <FormControl sx={{ mt: 3 }} fullWidth>
                         <InputLabel htmlFor="outlined-adornment-amount">Monthly Income</InputLabel>
                         <OutlinedInput
                             fullWidth
@@ -121,7 +142,7 @@ const QuestionnaireModal = ({ open, handleClose }: QuestionnaireProps) => {
                                 {option.label}
                             </MenuItem>
                         ))}
-                    </TextField>
+                    </TextField> */}
 
                 </div>
                 <Button sx={{ mt: 3 }} onClick={handleSubmit}>Save</Button>
