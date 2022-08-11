@@ -19,8 +19,10 @@ generator dbml {
 
 model User {
     id Int @id @default(autoincrement())
-    name String
-    role Role @default(CLIENT)
+    firstName String
+    lastName String
+    email String
+    type ClientType @default(POTENTIAL)
     portfolio Portfolio[]
     preference Preference?
 }
@@ -32,9 +34,9 @@ model Portfolio {
     userId Int
 }
 
-enum Role {
-    CLIENT
-    BANKER
+enum ClientType {
+    POTENTIAL
+    CONVERTED
 }
 
 model Preference {
