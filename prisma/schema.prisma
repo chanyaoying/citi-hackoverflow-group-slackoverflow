@@ -39,9 +39,9 @@ enum Role {
 
 model Preference {
     id String @id @default(cuid())
-    timePeriod Int?
-    longTerm Int?
-    withdraw Int?
+    spendingPeriod String?
+    longTerm String?
+    periodOfFirstWithdrawal String?
     stable Int?
     customerReaction Int?
     indestryPref Industry

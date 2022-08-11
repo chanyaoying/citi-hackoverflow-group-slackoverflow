@@ -24,9 +24,9 @@ Table Portfolio {
 
 Table Preference {
   id String [pk]
-  timePeriod Int
-  longTerm Int
-  withdraw Int
+  spendingPeriod String
+  longTerm String
+  periodOfFirstWithdrawal String
   stable Int
   customerReaction Int
   indestryPref Industry [not null]
