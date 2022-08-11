@@ -9,8 +9,10 @@ Project "Test Project Name" {
 
 Table User {
   id Int [pk, increment]
-  name String [not null]
-  role Role [not null, default: 'CLIENT']
+  firstName String [not null]
+  lastName String [not null]
+  email String [not null]
+  type ClientType [not null, default: 'POTENTIAL']
   portfolio Portfolio [not null]
   preference Preference
 }
@@ -34,9 +36,9 @@ Table Preference {
   userId Int [unique, not null]
 }
 
-Enum Role {
-  CLIENT
-  BANKER
+Enum ClientType {
+  POTENTIAL
+  CONVERTED
 }
 
 Enum Industry {
