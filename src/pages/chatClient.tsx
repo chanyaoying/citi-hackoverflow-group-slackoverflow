@@ -10,10 +10,9 @@ type Message = {
 };
 
 export default function Home() {
-  const [username, setUsername] = useState("");
-  const [chosenUsername, setChosenUsername] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<Array<Message>>([]);
+  const [messages1, setMessages1] = useState<Array<Messages>>([]);
 
   useEffect(() => {
     socketInitializer();
@@ -35,10 +34,10 @@ export default function Home() {
   };
 
   const sendMessage = async () => {
-    socket.emit("createdMessage", { author: chosenUsername, message });
-    setMessages((currentMsg) => [
+    socket.emit("createdMessage", { author: "Client", message });
+    setMessages1((currentMsg) => [
       ...currentMsg,
-      { author: chosenUsername, message },
+      { author: "Client", message },
     ]);
     setMessage("");
     console.log(messages);
