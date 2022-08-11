@@ -12,6 +12,7 @@ import { useState } from 'react';
 import Button from "@mui/material/Button"
 import ProfileCard from "../../components/ProfileCard"
 import QuestionnaireModal from '../../components/QuestionnaireModal';
+import NavBar from '../../components/NavBar'
 
 const profile = () => {
 
@@ -31,17 +32,19 @@ const profile = () => {
 
     return (
         // Side nav bar here
-        <div className="mx-auto flex flex-col items-center h-screen p-4">
-            <h1 className="text-4xl pb-5 ">{title}</h1>
-            <div className="grid grid-cols-2 gap-5 py-5">
-                <ProfileCard imageLink={imageLink} name={name} description={description} />
-                {/* Preferences (questionnaire answers) are shown here as a card*/}
+        <>
+        
+            <NavBar /><div className="mx-auto flex flex-col items-center h-screen p-4">
+                <h1 className="text-4xl pb-5 ">{title}</h1>
+                <div className="grid grid-cols-2 gap-5 py-5">
+                    <ProfileCard imageLink={imageLink} name={name} description={description} />
+                    {/* Preferences (questionnaire answers) are shown here as a card*/}
 
-                
-            </div>
-            <Button onClick={handleOpen} >Edit preferences</Button>
-            <QuestionnaireModal open={open} handleClose={handleClose} />
-        </div>
+
+                </div>
+                <Button onClick={handleOpen}>Edit preferences</Button>
+                <QuestionnaireModal open={open} handleClose={handleClose} />
+            </div></>
     )
 }
 
