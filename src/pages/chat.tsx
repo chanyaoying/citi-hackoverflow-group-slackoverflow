@@ -25,7 +25,7 @@ export default function Home() {
 
     socket = io();
 
-    socket.on("newIncomingMessage", (msg) => {
+    socket.off('newIncomingMessage').on("newIncomingMessage", (msg) => {
       setMessages((currentMsg) => [
         ...currentMsg,
         { author: msg.author, message: msg.message },
@@ -35,17 +35,27 @@ export default function Home() {
   };
 
   const sendMessage = async () => {
-    //socket.emit("createdMessage", { author: chosenUsername, message });
+    socket.emit("createdMessage", { author: chosenUsername, message });
     setMessages((currentMsg) => [
       ...currentMsg,
       { author: chosenUsername, message },
     ]);
     setMessage("");
+    console.log(messages);
   };
 
   const handleKeypress = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       sendMessage();
+    }
+  }
+
+  function checkUser(username:string) {
+    if (username.toLowerCase() == "client") {
+      return "You are talking to your Banker!"
+    }
+    else {
+      return "You are talking to your Client!"
     }
   }
 
@@ -57,15 +67,12 @@ export default function Home() {
       
         {!chosenUsername ? (
           <>
-            <h1 className="font-bold text-white text-4xl">
-                Talk to a Banker!
-            </h1>
             <h3 className="font-bold text-white text-xl">
-              How should I call you?
+              Are you the banker or client?
             </h3>
             <input
               type="text"
-              placeholder="Identity..."
+              placeholder="Banker/Client..."
               value={username}
               className="p-3 rounded-md outline-none"
               onChange={(e) => setUsername(e.target.value)}
@@ -76,20 +83,21 @@ export default function Home() {
               }}
               className="bg-white rounded-md px-4 py-2 text-xl"
             >
-              Start Chat!
+              Go!
             </button>
           </>
         ) : (
           <>
             <p className="font-bold text-white text-xl">
-              You are {username}!
+              {checkUser(username)}
             </p>
             <div className="flex flex-col justify-end bg-white h-[20rem] min-w-[33%] rounded-md shadow-md ">
               <div className="h-full last:border-b-0 overflow-y-scroll">
-                {messages.map((msg) => {
+                {messages.map((msg, i) => {
                   return (
                     <div
                       className="w-full py-1 px-2 border-b border-gray-200"
+                      key={i}
                     >
                       {msg.author}: {msg.message}
                     </div>
