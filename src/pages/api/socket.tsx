@@ -17,7 +17,7 @@ export default function SocketHandler(req, res) {
   };
 
   // Define actions inside
-  io.once("connection", onConnection);
+  io.on("connection", onConnection);
 
   console.log("Setting up socket");
   res.end();
