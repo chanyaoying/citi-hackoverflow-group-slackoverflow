@@ -46,8 +46,8 @@ const Home: NextPage = () => {
       <meta name="description" content="slackoverflow" />
       {/* <link rel="icon" href="/" /> */}
     </Head>
-    <div className = 'mx-64'>
-    <Image src = {citi} height={400} width={700}/>
+    <div className = 'mx-96'>
+    <Image src = {citi} height={500} width={850}/>
     </div>
     <div className = ' w-screen text-center' >
     <Button variant='outlined' size = 'large' className ='mt-16'><Link href='/clientHome'>I'm a client</Link></Button>

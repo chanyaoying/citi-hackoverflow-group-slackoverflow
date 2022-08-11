@@ -4,6 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import { useDemoData } from '@mui/x-data-grid-generator';
 import Typography from '@mui/material/Typography';
+import NavBar from '../../components/NavBanker'
 
 
 const banker = () => {
@@ -16,6 +17,7 @@ const banker = () => {
 
   return (
     <div>
+      <NavBar/>
       <nav className='flex items-center flex-wrap bg-blue-300 p-3 '>
         <Link href='/'>
           <a className='inline-flex items-center p-2 mr-4 '>

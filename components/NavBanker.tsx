@@ -41,8 +41,8 @@ const NavBar = () => {
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <ul className='inline-flex'>
-                <li><Link href="/"><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>INSIGHTS</a></Link></li>
-              
+                <li><Link href="/bankerHome"><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>MY CLIENTS</a></Link></li>
+                <li><Link href="/banker"><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>NEW CLIENTS</a></Link></li>
                 <li><Link href='/profile'><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>PROFILE</a></Link></li>
                 <li><Link href='/chat'><a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white '>MESSAGES</a></Link></li>
                 </ul>

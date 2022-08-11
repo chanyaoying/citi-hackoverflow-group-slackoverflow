@@ -56,6 +56,7 @@ export default function Promo() {
           </CardContent>
           <CardActions disableSpacing>
             <Contact/>
+            
               {/* <Button variant="outlined">Get in Touch</Button> */}
               <ExpandMore
                   expand={expanded}
