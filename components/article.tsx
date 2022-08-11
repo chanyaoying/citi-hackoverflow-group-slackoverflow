@@ -120,7 +120,7 @@ With more than half the year gone, however, hopes for a quick recovery have been
       <CardMedia sx={{height: 300}}
         component="img"
         height="10"
-        image="https://www.privatebank.citibank.com/newcpb-media/media/images/insights/attention-investors.jpg"
+        image="/attention-investors.jpg"
         alt="image"
       />
       <CardContent>

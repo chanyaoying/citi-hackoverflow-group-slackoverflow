@@ -1,11 +1,10 @@
 /**
  * This pops up and asks the user about their preferences.
  * OnSubmit: send the user's preferences to the backend, and update state.
- * TODO: change to Srinivas's questions.
  */
 
 import { useState } from 'react';
-import { Box, Modal, TextField, Typography, MenuItem, Button, OutlinedInput, InputAdornment, InputLabel, FormControl } from "@mui/material"
+import { Box, Modal, Typography, Button } from "@mui/material"
 import Question from './Question';
 
 const style = {
@@ -73,17 +72,6 @@ type QuestionnaireProps = {
 
 const QuestionnaireModal = ({ open, handleClose }: QuestionnaireProps) => {
 
-    // const [income, setIncome] = useState<string>("");
-    // const [chosenFinancialKnowledge, setChosenFinancialKnowledge] = useState<string>("");
-
-    // const handleIncomeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     setIncome(event.target.value);
-    // }
-
-    // const handleChosenFinancialKnowledgeChange = (event: React.ChangeEvent<{ value: string }>) => {
-    //     setChosenFinancialKnowledge(event.target.value as string);
-    // }
-
     const [answers, setAnswers] = useState<{ [key: string]: string }>({});
 
     const handleAnswerChange = (event: React.ChangeEvent<{ value: string }>, name: string ) => {
@@ -115,35 +103,6 @@ const QuestionnaireModal = ({ open, handleClose }: QuestionnaireProps) => {
                     {questions.map(question => (
                         <Question key={question.question} question={question.question} questionType={question.type} helperText={question.helperText} options={question.options} handler={(e) => {handleAnswerChange(e, question.name)}} />
                     ))}
-                    {/* <FormControl sx={{ mt: 3 }} fullWidth>
-                        <InputLabel htmlFor="outlined-adornment-amount">Monthly Income</InputLabel>
-                        <OutlinedInput
-                            fullWidth
-                            id="outlined-adornment-amount"
-                            value={income}
-                            onChange={handleIncomeChange}
-                            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                            label="Monthly Income"
-                        />
-                    </FormControl>
-                    <TextField
-                        sx={{ mt: 3 }}
-                        fullWidth
-                        select
-                        required
-                        id="outlined-select-financial-knowledge"
-                        label="Level of financial knowledge"
-                        defaultValue=""
-                        helperText="Please select your level of financial knowledge"
-                        onChange={handleChosenFinancialKnowledgeChange}
-                    >
-                        {financialKnowledge?.map(option => (
-                            <MenuItem key={option.value} value={option.value}>
-                                {option.label}
-                            </MenuItem>
-                        ))}
-                    </TextField> */}
-
                 </div>
                 <Button sx={{ mt: 3 }} onClick={handleSubmit}>Save</Button>
             </Box>
